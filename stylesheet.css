@@ -3,48 +3,72 @@
     --clr-background-separator: #14253E;
     --clr-background-editors: #1E3E62;
     --clr-borders: darkorange;
+    --clr-foreground-hover: rgb(205, 113, 1);
+    --clr-background-navbar: #12263d;
 }
 
 html, body {
     background-color: var(--clr-background);
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     width: 100%;
-    height: calc(100% - 3px);
+    height: 100%;
 }
 
 .container {
     display: flex;
-    width: calc(100% - 10px);
-    height: calc(100% - 10px);
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
 }
 
 .editors {
-    position: relative;
     display: grid;
-    width: 33%;
-    height: calc(100% - 10px);
-    border-right: 3.5px solid var(--clr-background-separator);
+    width: calc(100% - 10px);
+    height: 100%;
+    grid-template-columns: repeat(3, 1fr);
+    margin-inline: 5px;
+    margin-top: 5px;
+    gap: 10px;
+    align-items: center;
 }
 
 .editors_html, .editors_css, .editors_js {
-    margin: 5px;
+    height: 100%;
 }
-
 #editors_html_textarea, #editors_css_textarea, #editors_js_textarea {
     position: relative;
     resize: none;
     color: white;
     background-color: var(--clr-background-editors);
-    width: 100%;
-    height: 100%;
+    width: calc(100% - 7px);
+    left: 1px;
+    height: calc(100% - 1rem - 12px);
     outline: none;
     border: 1px solid var(--clr-borders);
     border-radius: 3px;
+    z-index: 1;
+}
 
-    &:focus {
-        border: 1.5px solid var(--clr-borders);
-    }
+.editors span {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+
+.editors_html_label_border, .editors_css_label_border, .editors_js_label_border {
+    position: relative;
+    height: 1rem;
+    width: 4rem;
+    left: 10vh;
+    z-index: 0;
+    border: 1px solid var(--clr-borders);
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-bottom: none;
+    background-color: var(--clr-background-editors);
 }
 
 .preview {

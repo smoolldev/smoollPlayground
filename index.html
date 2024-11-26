@@ -5,23 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="navbar.css">
     <script src="index.js" defer></script>
 </head>
 <body>
     <div class="container">
+        <nav class="navbar">
+            <div class="navbar_logo">smoollPlayground</div>
+            <button class="navbar_execute">Run</button>
+            <button class="navbar_clear">Clear</button>
+            <button class="navbar_save">Save</button>
+            <button class="navbar_load">Load</button>
+        </nav>
         <div class="editors">
             <div class="editors_html">
+                <div class="editors_html_label_border">
+                    <span>HTML</span>
+                </div>
                 <textarea name="editors_html_textarea" id="editors_html_textarea"></textarea>
             </div>
             <div class="editors_css">
+                <div class="editors_css_label_border">
+                    <span>CSS</span>
+                </div>
                 <textarea name="editors_css_textarea" id="editors_css_textarea"></textarea>
             </div>
             <div class="editors_js">
+                <div class="editors_js_label_border">
+                    <span>JS</span>
+                </div>
                 <textarea name="editors_js_textarea" id="editors_js_textarea"></textarea>
             </div>
-        </div>
-        <div class="preview">
-            <style id="preview_style"></style>
         </div>
     </div>
 </body>

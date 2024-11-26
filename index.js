@@ -5,9 +5,9 @@ const preview = document.querySelector(".preview");
 const style = document.createElement("style");
 document.head.appendChild(style);
 
-if (!preview) {
-    throw "Ligma ballz!";
-}
+// if (!preview) {
+//     throw "Ligma ballz!";
+// }
 if (!editors_html_textarea) {
     throw "Ligma ballz!";
 }
