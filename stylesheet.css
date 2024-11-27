@@ -13,6 +13,7 @@ html, body {
     padding: 0;
     width: 100%;
     height: 100%;
+    zoom: 125%;
 }
 
 .container {
@@ -35,8 +36,13 @@ html, body {
 
 .editors_html, .editors_css, .editors_js {
     height: 100%;
+
+    &:focus-within {
+        background-color: var(--clr-background);
+    }
 }
-#editors_html_textarea, #editors_css_textarea, #editors_js_textarea {
+
+.editors textarea {
     position: relative;
     resize: none;
     color: white;
@@ -45,9 +51,23 @@ html, body {
     left: 1px;
     height: calc(100% - 1rem - 12px);
     outline: none;
-    border: 1px solid var(--clr-borders);
+    border: 1.5px solid var(--clr-borders);
     border-radius: 3px;
     z-index: 1;
+}
+
+.editors_html_label_border, .editors_css_label_border, .editors_js_label_border {
+    position: relative;
+    height: 1rem;
+    width: 4rem;
+    left: 5%;
+    z-index: 0;
+    border: 1.5px solid var(--clr-borders);
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-bottom: none;
+    background-color: var(--clr-background-editors);
+    cursor: default;
 }
 
 .editors span {
@@ -56,19 +76,6 @@ html, body {
     top: 50%;
     transform: translate(-50%, -50%);
     color: white;
-}
-
-.editors_html_label_border, .editors_css_label_border, .editors_js_label_border {
-    position: relative;
-    height: 1rem;
-    width: 4rem;
-    left: 10vh;
-    z-index: 0;
-    border: 1px solid var(--clr-borders);
-    border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
-    border-bottom: none;
-    background-color: var(--clr-background-editors);
 }
 
 .preview {

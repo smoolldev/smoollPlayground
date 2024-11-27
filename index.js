@@ -1,6 +1,7 @@
 const editors_html_textarea = document.getElementById("editors_html_textarea");
 const editors_css_textarea = document.getElementById("editors_css_textarea");
 const editors_js_textarea = document.getElementById("editors_js_textarea");
+const editors_html_label_border = document.querySelector(".editors_html_label_border");
 const style = document.createElement("style");
 document.head.appendChild(style);
 
@@ -13,6 +14,11 @@ if (!editors_css_textarea) {
 if (!editors_js_textarea) {
     throw "Ligma ballz!";
 }
+
+editors_html_textarea.addEventListener("click", () => {
+    editors_html_textarea.classList.toggle("focused");
+    editors_html_label_border.classList.toggle("focused");
+});
 
 editors_html_textarea.addEventListener('change', () => {
     preview.innerHTML = editors_html_textarea.value;
