@@ -36,10 +36,6 @@ html, body {
 
 .editors_html, .editors_css, .editors_js {
     height: 100%;
-
-    &:focus-within {
-        background-color: var(--clr-background);
-    }
 }
 
 .editors textarea {
@@ -53,7 +49,10 @@ html, body {
     outline: none;
     border: 1.5px solid var(--clr-borders);
     border-radius: 3px;
-    z-index: 1;
+
+    &:focus {
+        background-color: #1b3757;
+    }
 }
 
 .editors_html_label_border, .editors_css_label_border, .editors_js_label_border {
@@ -61,13 +60,18 @@ html, body {
     height: 1rem;
     width: 4rem;
     left: 5%;
-    z-index: 0;
     border: 1.5px solid var(--clr-borders);
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
     border-bottom: none;
     background-color: var(--clr-background-editors);
     cursor: default;
+}
+
+.editors_focused {
+    box-shadow: 0 0 10px 2.5px rgb(0, 164, 0);
+    border-color: rgb(0, 164, 0);
+    border: none;
 }
 
 .editors span {
@@ -79,11 +83,47 @@ html, body {
 }
 
 .preview {
-    background-color: var(--clr-background-editors);
-    position: relative;
-    width: 66%;
-    height: calc(100% - 11px);
-    border: 1px solid var(--clr-borders);
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1.5px solid var(--clr-borders);
+    width: 75%;
+    height: 95%;
     border-radius: 3px;
-    margin: 5px;
+    box-shadow: 0 0 10px 2px black;
+    z-index: 999;
+}
+
+.close {
+    all: unset;
+    background-color: var(--clr-background);
+    position: absolute;
+    top: 0;
+    left: 100%;
+    transform: translateX(-100%);
+    margin-top: 2.5px;
+    margin-left: -2.5px;
+    padding: 2.5px;
+    padding-inline: 5px;
+    color: white;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: color .3s ease-in-out;
+    z-index: 1000;
+
+    &:hover {
+        color: var(--clr-borders);
+    }
+}
+
+.blur {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    backdrop-filter: blur(1.5px);
+    z-index: 998
 }
