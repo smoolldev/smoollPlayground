@@ -11,6 +11,14 @@ const editors_html_label_border = document.querySelector(".editors_html_label_bo
 const editors_css_label_border = document.querySelector(".editors_css_label_border");
 const editors_js_label_border = document.querySelector(".editors_js_label_border");
 
+const navbar_load_input = document.querySelector("#navbar_load_input");
+const navbar_save_input = document.querySelector("#navbar_save_input");
+
+const reader = new FileReader();
+reader.addEventListener("load", () => {
+    editors_css_textarea.value = reader.result;
+})
+
 const style = document.createElement("style");
 document.head.appendChild(style);
 
@@ -84,15 +92,15 @@ editors_js_textarea.addEventListener("focusout", () => {
     editors_js_label_border.style.borderBottom = "none";
 });
 
-// function record_key(e) {
-//     if (e.ctrlKey && e.key == 'r') {
-//         run_code();
-//     } else if (e.key == 'Escape') {
-//         if (document.querySelector(".preview")) {
-//             preview_close();
-//         }
-//     }
-// }
-// document.addEventListener('keydown', record_key);
+navbar_run.addEventListener("click", run_code);
+navbar_clear.addEventListener("click", clear_code);
+navbar_load.addEventListener("click", () => {
+    navbar_load_input.click();
+});
+navbar_load_input.addEventListener("change", () => {
+    reader.readAsText(navbar_load_input.files[0]);
+});
+
+
 
 close.addEventListener("click", preview_close);
