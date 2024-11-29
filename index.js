@@ -3,9 +3,9 @@ const navbar_clear = document.querySelector(".navbar_clear");
 const navbar_save = document.querySelector(".navbar_save");
 const navbar_load = document.querySelector(".navbar_load");
 
-const editors_html_textarea = document.getElementById("editors_html_textarea");
-const editors_css_textarea = document.getElementById("editors_css_textarea");
-const editors_js_textarea = document.getElementById("editors_js_textarea");
+const editors_html_textarea = document.querySelector("#editors_html_textarea");
+const editors_css_textarea = document.querySelector("#editors_css_textarea");
+const editors_js_textarea = document.querySelector("#editors_js_textarea");
 
 const editors_html_label_border = document.querySelector(".editors_html_label_border");
 const editors_css_label_border = document.querySelector(".editors_css_label_border");
@@ -100,7 +100,5 @@ navbar_load.addEventListener("click", () => {
 navbar_load_input.addEventListener("change", () => {
     reader.readAsText(navbar_load_input.files[0]);
 });
-
-
 
 close.addEventListener("click", preview_close);

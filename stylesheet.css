@@ -49,6 +49,7 @@ html, body {
     outline: none;
     border: 1.5px solid var(--clr-borders);
     border-radius: 3px;
+    transition: background-color .3s ease-in-out;
 
     &:focus {
         background-color: #1b3757;
@@ -72,6 +73,7 @@ html, body {
     box-shadow: 0 0 10px 2.5px rgb(0, 164, 0);
     border-color: rgb(0, 164, 0);
     border: none;
+    transition: box-shadow .3s ease-in-out, border .3s ease-in-out;
 }
 
 .editors span {
@@ -94,6 +96,11 @@ html, body {
     border-radius: 3px;
     box-shadow: 0 0 10px 2px black;
     z-index: 999;
+}
+
+.preview, .blur, .close {
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
 }
 
 .close {
